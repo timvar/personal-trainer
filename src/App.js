@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import './App.css';
 import Navbar from './components/Navbar';
+import Home from './components/Home';
+import Customers from './components/Customers';
+import Trainings from './components/Trainings';
+import CustomerDetails from './components/CustomerDetails';
 
 class App extends Component {
   render() {
@@ -9,6 +13,12 @@ class App extends Component {
       <BrowserRouter>
         <div className="App">
           <Navbar />
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route path="/customers/:id" component={CustomerDetails} />
+            <Route path="/customers" component={Customers} />
+            <Route path="/trainings" component={Trainings} />
+          </Switch>
         </div>
       </BrowserRouter>
     );

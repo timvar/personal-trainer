@@ -8,20 +8,14 @@ const Navbar = (props) => {
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>
-        <Link className="navbar-brand" to="/">My Car Shop</Link>
+        <Link className="navbar-brand" to="/">My Personal Trainer</Link>
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav">
             <li className="nav-item">
-              <Link className="nav-link" to="/listcar">List Cars</Link>
+              <Link className="nav-link" to="/customers">Customers</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/addcar">Add Car</Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/editcar">Edit Car</Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/deletecar">Delete Car</Link>
+              <Link className="nav-link" to="/trainings">Trainings</Link>
             </li>
           </ul>
           <form className="form-inline my-2 my-lg-0">
