@@ -46,6 +46,10 @@ export default class Customers extends Component {
       accessor: 'postcode'
     },
     {
+      Header: 'City',
+      accessor: 'city'
+    },
+    {
       Header: 'Email',
       accessor: 'email'
     },
