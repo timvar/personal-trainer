@@ -4,7 +4,15 @@ import React, { Component } from 'react';
 export default class CustomerDetails extends Component {
   constructor(props){
     super(props);
-    this.state = {firstname: '', lastname: '', streetaddress: '', city: '', email: '', phone: '', postcode: ''};
+    this.state = {
+      firstname: '', 
+      lastname: '', 
+      streetaddress: '', 
+      city: '', 
+      email: '', 
+      phone: '', 
+      postcode: '',
+    };
   }
 
   getCustomer = () => {
@@ -46,7 +54,25 @@ export default class CustomerDetails extends Component {
     }
     console.log(customer);
     console.log(url);
-    axios.put(url, customer);
+    axios.put(url, customer)
+    .catch(err => console.log('Error: ', err));
+  }
+
+  deleteCustomer = () => {
+    console.log('delete customer');
+    const url = 'https://customerrest.herokuapp.com/api/customers/' + this.props.match.params.id;
+    console.log('url ', url);
+    axios.delete(url)
+    .catch(err => console.log('Error: ', err));
+    this.setState({
+      firstname: '', 
+      lastname: '', 
+      streetaddress: '', 
+      city: '', 
+      email: '', 
+      phone: '', 
+      postcode: ''
+    });
   }
 
   componentDidMount () {
@@ -57,7 +83,7 @@ export default class CustomerDetails extends Component {
     const { firstname, lastname, streetaddress, postcode, city, email, phone } = this.state
     return (
       <div className="container">
-        <h2>Customer details</h2>  
+        <h2>Update Customer</h2>  
         <form onSubmit={this.updateCustomer} >
           <div className="form-group row">
             <label htmlFor="firstname" className="col-sm-2 col-form-label">First name</label>
@@ -150,10 +176,33 @@ export default class CustomerDetails extends Component {
                 />
             </div>
           </div>
-
-        
-        <button type="submit" className="btn btn-primary">Submit</button>
+        <button type="submit" className="btn btn-primary">Update</button>  
       </form>
+      
+      
+      <button type="button" className="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
+        Delete
+      </button>
+      
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Delete Customer</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              Delete Customer - are you sure?
+            </div>
+            <div class="modal-footer">
+              <button type="button" className="btn btn-secondary" data-dismiss="modal">Cancel</button>
+              <button type="button" className="btn btn-danger" data-dismiss="modal" onClick={this.deleteCustomer}>Delete</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     )
   }

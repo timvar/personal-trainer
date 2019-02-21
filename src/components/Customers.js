@@ -83,12 +83,16 @@ export default class Customers extends Component {
   return (
     <div className="container">
       <h2>Customers</h2>
+      <Link to={'/addcustomer'}>
+        <button type="button" className='btn btn-danger'>Add Customer</button>
+      </Link>
       <ReactTable 
           data={this.state.customers}
           filterable
           columns={columns}
           defaultPageSize={10}
       />
+      
     </div>
   )
   }

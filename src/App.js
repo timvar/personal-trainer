@@ -6,6 +6,7 @@ import Home from './components/Home';
 import Customers from './components/Customers';
 import Trainings from './components/Trainings';
 import CustomerDetails from './components/CustomerDetails';
+import AddCustomer from './components/AddCustomer';
 
 class App extends Component {
   render() {
@@ -17,6 +18,7 @@ class App extends Component {
             <Route exact path="/" component={Home} />
             <Route path="/customers/:id" component={CustomerDetails} />
             <Route path="/customers" component={Customers} />
+            <Route path="/addcustomer" component={AddCustomer} />
             <Route path="/trainings" component={Trainings} />
           </Switch>
         </div>
