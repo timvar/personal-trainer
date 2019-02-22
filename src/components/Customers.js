@@ -58,7 +58,7 @@ export default class Customers extends Component {
       accessor: 'phone'
     },
     { id: 'customerId',
-      Header: 'Id',
+      Header: 'Edit Customer',
       accessor: d => {
         const href = d.links[0].href
         const pos = href.lastIndexOf("/");
@@ -67,16 +67,19 @@ export default class Customers extends Component {
           <Link to={'/customers/' + id}>
             <button type="button" className='btn btn-danger'>Edit</button>
           </Link> );
-
       }
     },
-    {
-      Cell: row => {
-              return (  
-                <Link to={'/customers/' + row.index}>
-                  <button type="button" className='btn btn-danger'  onClick={(e) => this.editCustomer(row.index)}>Edit</button>
-                </Link> );
-              } 
+    { id: 'addTraining',
+      Header: 'New Training',
+      accessor: d => {
+        const href = d.links[0].href
+        const pos = href.lastIndexOf("/");
+        const id = href.slice(pos+1);
+        return (  
+          <Link to={'/addtraining/' + id}>
+            <button type="button" className='btn btn-danger'>New Training</button>
+          </Link> );
+      }
     }
   ]
   
