@@ -33,13 +33,6 @@ export default class Trainings extends Component {
       }
     },
     {
-      id: 'trainingTime',
-      Header: 'Time',
-      accessor: d => {
-        return moment(d.date).format("HH:mm");
-      }
-    },
-    {
       Header: 'Duration',
       accessor: 'duration'
     },
@@ -54,8 +47,19 @@ export default class Trainings extends Component {
     {
       Header: 'Customer Lastname',
       accessor: 'customer.lastname'
+    },
+    { id: 'deleteTraining',
+      Header: 'Delete Training',
+      accessor: d => {
+        const id = d.id;
+        return (  
+          <Link to={'/deletetraining/' + id}>
+            <button type="button" className='btn btn-danger'>Delete</button>
+          </Link> );
     }
+  }
   ]
+  
     return (
       <div className="container">
         <h2>Trainings</h2>
@@ -69,3 +73,19 @@ export default class Trainings extends Component {
     )
   }
 }
+
+/*
+{ id: 'deleteTraining',
+      Header: 'Delete Training',
+      accessor: d => {
+        const href = d.links[0].href
+        const pos = href.lastIndexOf("/");
+        const id = d.id;
+        return (  
+          <Link to={'/addtraining/' + id}>
+            <button type="button" className='btn btn-danger'>Delete</button>
+          </Link> );
+      }
+    }
+
+*/

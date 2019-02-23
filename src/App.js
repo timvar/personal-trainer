@@ -8,6 +8,7 @@ import Trainings from './components/Trainings';
 import CustomerDetails from './components/CustomerDetails';
 import AddCustomer from './components/AddCustomer';
 import AddTraining from './components/AddTraining';
+import DeleteTraining from './components/DeleteTraining';
 
 class App extends Component {
   render() {
@@ -21,7 +22,8 @@ class App extends Component {
             <Route path="/customers" component={Customers} />
             <Route path="/addcustomer" component={AddCustomer} />
             <Route path="/trainings" component={Trainings} />
-            <Route path="/addtraining" component={AddTraining} />
+            <Route path="/addtraining/:id" component={AddTraining} />
+            <Route path="/deletetraining/:id" component={DeleteTraining} />
           </Switch>
         </div>
       </BrowserRouter>
