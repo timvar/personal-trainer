@@ -1,10 +1,22 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { Redirect } from 'react-router-dom';
 
 export default class AddTraining extends Component {
   constructor(props){
     super(props);
-    this.state = { date: '', activity: '', duration: '', customer: '', firstname: '', lastname: '', email: '', phone: '', customerapi: '' }
+    this.state = { 
+      date: '', 
+      activity: '', 
+      duration: '', 
+      customer: '', 
+      firstname: '', 
+      lastname: '', 
+      email: '', 
+      phone: '', 
+      customerapi: '',
+      trainingadded: false 
+    }
   }
 
   inputChanged = (e) => {
@@ -49,9 +61,20 @@ export default class AddTraining extends Component {
     this.getCustomer();
   }
 
+  goToCustomer = () => {
+    this.setState({
+      trainingadded: true
+    });
+  }
+
   render() {
-    const { date, activity, duration } = this.state
+    const { date, activity, duration, trainingadded } = this.state
     console.log('props:', this.props);
+
+    if (trainingadded) {
+      return <Redirect to='/customers' />
+    }
+
     return (
       <div className="container">
         <h2>Add Training</h2>
@@ -101,8 +124,26 @@ export default class AddTraining extends Component {
                 />
             </div>
           </div>
-        <button type="submit" className="btn btn-primary">Add</button>  
+        <button type="submit" className="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Add</button>  
       </form>
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Add Customer</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              Training added!
+            </div>
+            <div class="modal-footer">
+              <button type="button" className="btn btn-danger" data-dismiss="modal" onClick={this.goToCustomer}>OK</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     )
   }

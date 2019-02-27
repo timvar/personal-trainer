@@ -9,6 +9,7 @@ import CustomerDetails from './components/CustomerDetails';
 import AddCustomer from './components/AddCustomer';
 import AddTraining from './components/AddTraining';
 import DeleteTraining from './components/DeleteTraining';
+import Reservations from './components/Reservations';
 
 class App extends Component {
   render() {
@@ -24,6 +25,7 @@ class App extends Component {
             <Route path="/trainings" component={Trainings} />
             <Route path="/addtraining/:id" component={AddTraining} />
             <Route path="/deletetraining/:id" component={DeleteTraining} />
+            <Route path="/reservations" component={Reservations} />
           </Switch>
         </div>
       </BrowserRouter>

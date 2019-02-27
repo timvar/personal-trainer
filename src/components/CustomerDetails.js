@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
 
 export default class CustomerDetails extends Component {
   constructor(props){
@@ -12,16 +13,15 @@ export default class CustomerDetails extends Component {
       email: '', 
       phone: '', 
       postcode: '',
+      customerDeleted: false,
+      customerUpdated: false
     };
   }
 
   getCustomer = () => {
-    //console.log('customer id: ', this.props.match.params.id);
     const url = 'https://customerrest.herokuapp.com/api/customers/' + this.props.match.params.id;
-    //console.log('url ', url);
     axios.get(url)
     .then( response => {
-      console.log('firstname: ', response.data.firstname);
       this.setState({ 
         firstname: response.data.firstname, 
         lastname: response.data.lastname, 
@@ -44,17 +44,28 @@ export default class CustomerDetails extends Component {
     console.log('update customer');
     const url = 'https://customerrest.herokuapp.com/api/customers/' + this.props.match.params.id;
     const customer = {
-        firstname: this.state.firstname, 
-        lastname: this.state.lastname, 
-        streetaddress: this.state.streetaddress,
-        postcode: this.state.postcode,
-        city: this.state.city,
-        email: this.state.email,
-        phone: this.state.phone
+      firstname: this.state.firstname, 
+      lastname: this.state.lastname, 
+      streetaddress: this.state.streetaddress,
+      postcode: this.state.postcode,
+      city: this.state.city,
+      email: this.state.email,
+      phone: this.state.phone
     }
     console.log(customer);
     console.log(url);
-    axios.put(url, customer)
+    axios.put(url, customer).then( () => {
+      this.setState({
+        firstname: '', 
+        lastname: '', 
+        streetaddress: '', 
+        city: '', 
+        email: '', 
+        phone: '', 
+        postcode: '',
+        customerUpdated: true
+      });
+    })
     .catch(err => console.log('Error: ', err));
   }
 
@@ -62,17 +73,19 @@ export default class CustomerDetails extends Component {
     console.log('delete customer');
     const url = 'https://customerrest.herokuapp.com/api/customers/' + this.props.match.params.id;
     console.log('url ', url);
-    axios.delete(url)
+    axios.delete(url).then( () => {
+      this.setState({
+            firstname: '', 
+            lastname: '', 
+            streetaddress: '', 
+            city: '', 
+            email: '', 
+            phone: '', 
+            postcode: '',
+            customerDeleted: true
+          });
+    })
     .catch(err => console.log('Error: ', err));
-    this.setState({
-      firstname: '', 
-      lastname: '', 
-      streetaddress: '', 
-      city: '', 
-      email: '', 
-      phone: '', 
-      postcode: ''
-    });
   }
 
   componentDidMount () {
@@ -80,7 +93,16 @@ export default class CustomerDetails extends Component {
   }
   
   render() {
-    const { firstname, lastname, streetaddress, postcode, city, email, phone } = this.state
+    const { firstname, lastname, streetaddress, postcode, city, email, phone, customerDeleted, customerUpdated } = this.state
+    
+    if (customerDeleted) {
+      return <Redirect to='/customers' />
+    }
+
+    if (customerUpdated) {
+      return <Redirect to='/customers' />
+    }
+
     return (
       <div className="container">
         <h2>Update Customer</h2>  

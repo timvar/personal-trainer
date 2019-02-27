@@ -14,7 +14,6 @@ export default class Trainings extends Component {
   getTrainings = () => {
     axios.get('https://customerrest.herokuapp.com/gettrainings')
     .then( response => {
-      console.log(response.data);
       this.setState({ trainings: response.data });
     })
     .catch( err => console.log('Error msg: ', err));
@@ -57,8 +56,7 @@ export default class Trainings extends Component {
             <button type="button" className='btn btn-danger'>Delete</button>
           </Link> );
     }
-  }
-  ]
+    }]
   
     return (
       <div className="container">
@@ -68,24 +66,8 @@ export default class Trainings extends Component {
           filterable
           columns={columns}
           defaultPageSize={10}
-      />
+        />
       </div>
     )
   }
 }
-
-/*
-{ id: 'deleteTraining',
-      Header: 'Delete Training',
-      accessor: d => {
-        const href = d.links[0].href
-        const pos = href.lastIndexOf("/");
-        const id = d.id;
-        return (  
-          <Link to={'/addtraining/' + id}>
-            <button type="button" className='btn btn-danger'>Delete</button>
-          </Link> );
-      }
-    }
-
-*/

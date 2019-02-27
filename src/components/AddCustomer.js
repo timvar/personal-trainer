@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { Redirect } from 'react-router-dom';
 
 export default class AddCustomer extends Component {
   constructor(props){
@@ -11,7 +12,8 @@ export default class AddCustomer extends Component {
       city: '', 
       email: '', 
       phone: '', 
-      postcode: ''
+      postcode: '',
+      customeradded: false
     };
   }
   
@@ -49,9 +51,20 @@ export default class AddCustomer extends Component {
       postcode: ''
     });
   }
+
+  goToCustomer = () => {
+    this.setState({
+      customeradded: true
+    });
+  }
   
   render() {
-    const { firstname, lastname, streetaddress, postcode, city, email, phone } = this.state;
+    const { firstname, lastname, streetaddress, postcode, city, email, phone, customeradded } = this.state;
+    
+    if (customeradded) {
+      return <Redirect to='/customers' />
+    }
+
     return (
       <div className="container">
       <h2>Add Customer</h2>  
@@ -147,8 +160,27 @@ export default class AddCustomer extends Component {
               />
           </div>
         </div>
-        <button type="submit" className="btn btn-primary">Submit</button>
+        <button type="submit" className="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Submit</button>
       </form>
+
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Add Customer</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              Customer added!
+            </div>
+            <div class="modal-footer">
+              <button type="button" className="btn btn-danger" data-dismiss="modal" onClick={this.goToCustomer}>OK</button>
+            </div>
+          </div>
+        </div>
+      </div>
       </div>
     )
   }
