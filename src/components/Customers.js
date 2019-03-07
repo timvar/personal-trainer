@@ -54,35 +54,41 @@ export default class Customers extends Component {
       accessor: 'phone'
     },
     { id: 'customerId',
-      Header: 'Edit Customer',
+      Header: '',
+      sortable: false,
+      filterable: false,
       accessor: d => {
         const href = d.links[0].href
         const pos = href.lastIndexOf("/");
         const id = href.slice(pos+1);
         return (  
           <Link to={'/customers/' + id}>
-            <button type="button" className='btn btn-danger'>Edit</button>
+            <button type="button" className='btn btn-success'>Edit</button>
           </Link> );
       }
     },
     { id: 'addTraining',
-      Header: 'New Training',
+      Header: '',
+      sortable: false,
+      filterable: false,
       accessor: d => {
         const href = d.links[0].href
         const pos = href.lastIndexOf("/");
         const id = href.slice(pos+1);
         return (  
           <Link to={'/addtraining/' + id}>
-            <button type="button" className='btn btn-danger'>New Training</button>
+            <button type="button" className='btn btn-success'>New Training</button>
           </Link> );
       }
     }]
   
     return (
       <div className="container">
-        <Link to={'/addcustomer'}>
-          <button type="button" className='btn btn-danger'>Add Customer</button>
-        </Link>
+        <div className="add-customer-btn">
+          <Link to={'/addcustomer'}>
+            <button type="button" className='btn btn-success'>Add Customer</button>
+          </Link>
+        </div>
         <ReactTable 
             data={this.state.customers}
             filterable

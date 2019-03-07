@@ -105,104 +105,111 @@ export default class CustomerDetails extends Component {
 
     return (
       <div className="container">
-        <h2>Update Customer</h2>  
-        <form onSubmit={this.updateCustomer} >
-          <div className="form-group row">
-            <label htmlFor="firstname" className="col-sm-2 col-form-label">First name</label>
-            <div className="col-sm-10">
-              <input 
-                type="text"
-                onChange={this.inputChanged}
-                className="form-control" 
-                id="firstname"
-                name="firstname"
-                value={firstname}
-                />
-            </div>
-          </div>
-          <div className="form-group row">
-            <label htmlFor="lastname" className="col-sm-2 col-form-label">Last name</label>
-            <div className="col-sm-10">
-              <input 
-                type="text"
-                onChange={this.inputChanged}
-                className="form-control" 
-                id="lastname"
-                name="lastname"
-                value={lastname}
-                />
-            </div>
-          </div>
-          <div className="form-group row">
-            <label htmlFor="lastname" className="col-sm-2 col-form-label">Street address</label>
-            <div className="col-sm-10">
-              <input 
-                type="text"
-                onChange={this.inputChanged}
-                className="form-control" 
-                id="streetaddress"
-                name="streetaddress"
-                value={streetaddress}
-                />
-            </div>
-          </div>
-          <div className="form-group row">
-            <label htmlFor="lastname" className="col-sm-2 col-form-label">Postcode</label>
-            <div className="col-sm-10">
-              <input 
-                type="text"
-                onChange={this.inputChanged}
-                className="form-control" 
-                id="postcode"
-                name="postcode"
-                value={postcode}
-                />
-            </div>
-          </div>
-          <div className="form-group row">
-            <label htmlFor="lastname" className="col-sm-2 col-form-label">City</label>
-            <div className="col-sm-10">
-              <input 
-                type="text"
-                onChange={this.inputChanged}
-                className="form-control" 
-                id="city"
-                name="city"
-                value={city}
-                />
-            </div>
-          </div>
-          <div className="form-group row">
-            <label htmlFor="lastname" className="col-sm-2 col-form-label">Email</label>
-            <div className="col-sm-10">
-              <input 
-                type="text"
-                onChange={this.inputChanged}
-                className="form-control" 
-                id="email"
-                name="email"
-                value={email}
-                />
-            </div>
-          </div>
-          <div className="form-group row">
-            <label htmlFor="lastname" className="col-sm-2 col-form-label">Phone</label>
-            <div className="col-sm-10">
-              <input 
-                type="text"
-                onChange={this.inputChanged}
-                className="form-control" 
-                id="phone"
-                name="phone"
-                value={phone}
-                />
-            </div>
-          </div>
-        <button type="submit" className="btn btn-primary">Update</button>  
-      </form>
+        <div className="customer-details">
+          <h3>Update Customer</h3>  
+        </div>
+        <div className="row">
+          <div className="col"></div>
+          <div className="col-8">
+            <form onSubmit={this.updateCustomer} >
+              <div className="form-group row">
+                <label htmlFor="firstname" className="col-sm-4 col-form-label">First name</label>
+                <div className="col-sm-8">
+                  <input 
+                    type="text"
+                    onChange={this.inputChanged}
+                    className="form-control" 
+                    id="firstname"
+                    name="firstname"
+                    value={firstname}
+                    />
+                </div>
+              </div>
+              <div className="form-group row">
+                <label htmlFor="lastname" className="col-sm-4 col-form-label">Last name</label>
+                <div className="col-sm-8">
+                  <input 
+                    type="text"
+                    onChange={this.inputChanged}
+                    className="form-control" 
+                    id="lastname"
+                    name="lastname"
+                    value={lastname}
+                    />
+                </div>
+              </div>
+              <div className="form-group row">
+                <label htmlFor="lastname" className="col-sm-4 col-form-label">Street address</label>
+                <div className="col-sm-8">
+                  <input 
+                    type="text"
+                    onChange={this.inputChanged}
+                    className="form-control" 
+                    id="streetaddress"
+                    name="streetaddress"
+                    value={streetaddress}
+                    />
+                </div>
+              </div>
+              <div className="form-group row">
+                <label htmlFor="lastname" className="col-sm-4 col-form-label">Postcode</label>
+                <div className="col-sm-8">
+                  <input 
+                    type="text"
+                    onChange={this.inputChanged}
+                    className="form-control" 
+                    id="postcode"
+                    name="postcode"
+                    value={postcode}
+                    />
+                </div>
+              </div>
+              <div className="form-group row">
+                <label htmlFor="lastname" className="col-sm-4 col-form-label">City</label>
+                <div className="col-sm-8">
+                  <input 
+                    type="text"
+                    onChange={this.inputChanged}
+                    className="form-control" 
+                    id="city"
+                    name="city"
+                    value={city}
+                    />
+                </div>
+              </div>
+              <div className="form-group row">
+                <label htmlFor="lastname" className="col-sm-4 col-form-label">Email</label>
+                <div className="col-sm-8">
+                  <input 
+                    type="text"
+                    onChange={this.inputChanged}
+                    className="form-control" 
+                    id="email"
+                    name="email"
+                    value={email}
+                    />
+                </div>
+              </div>
+              <div className="form-group row">
+                <label htmlFor="lastname" className="col-sm-4 col-form-label">Phone</label>
+                <div className="col-sm-8">
+                  <input 
+                    type="text"
+                    onChange={this.inputChanged}
+                    className="form-control" 
+                    id="phone"
+                    name="phone"
+                    value={phone}
+                    />
+                </div>
+              </div>
+            <button type="submit" className="update-customer btn btn-primary">Update</button>  
+          </form>
+      </div>
+      <div className="col"></div>
+      </div>
       
-      
-      <button type="button" className="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
+      <button type="button" className="btn btn-danger delete-customer" data-toggle="modal" data-target="#exampleModal">
         Delete
       </button>
       

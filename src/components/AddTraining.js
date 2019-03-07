@@ -77,55 +77,108 @@ export default class AddTraining extends Component {
 
     return (
       <div className="container">
-        <h2>Add Training</h2>
-        <div className="text-left">
-          <h5>First name: {this.state.firstname}</h5>
-          <h5>Last name: {this.state.lastname}</h5>
-          <h5>Phone: {this.state.phone}</h5>
-          <h5>Email: {this.state.email}</h5>
+        <div className="add-training-header">
+          <h3>Add Training</h3>
         </div>
-        <form onSubmit={this.addTraining} >
-          <div className="form-group row">
-            <label htmlFor="firstname" className="col-sm-2 col-form-label">Date</label>
-            <div className="col-sm-10">
-              <input 
-                type="date"
-                onChange={this.inputChanged}
-                className="form-control" 
-                id="date"
-                name="date"
-                value={date}
-                />
+        <div className="add-training-customer-data">
+        <div className="row">
+          <div className="col"></div>
+          <div className="col-8">
+            <div className="row">
+              <div className="col-sm-4 text-right">First name</div>
+              <div className="col-8 text-left">{this.state.firstname}</div>
             </div>
           </div>
-          <div className="form-group row">
-            <label htmlFor="lastname" className="col-sm-2 col-form-label">Activity</label>
-            <div className="col-sm-10">
-              <input 
-                type="text"
-                onChange={this.inputChanged}
-                className="form-control" 
-                id="activity"
-                name="activity"
-                value={activity}
-                />
+          <div className="col"></div>
+        </div>
+        
+        <div className="row">
+          <div className="col"></div>
+          <div className="col-8">
+            <div className="row">
+              <div className="col-sm-4 text-right">Last name</div>
+              <div className="col-8 text-left">{this.state.lastname}</div>
             </div>
           </div>
-          <div className="form-group row">
-            <label htmlFor="lastname" className="col-sm-2 col-form-label">Duration (mins)</label>
-            <div className="col-sm-10">
-              <input 
-                type="text"
-                onChange={this.inputChanged}
-                className="form-control" 
-                id="duration"
-                name="duration"
-                value={duration}
-                />
+          <div className="col"></div>
+        </div>
+        
+        <div className="row">
+          <div className="col"></div>
+          <div className="col-8">
+            <div className="row">
+              <div className="col-sm-4 text-right">Phone</div>
+              <div className="col-8 text-left">{this.state.phone}</div>
             </div>
           </div>
-        <button type="submit" className="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Add</button>  
-      </form>
+          <div className="col"></div>
+        </div>
+
+        <div className="row">
+          <div className="col"></div>
+          <div className="col-8">
+            <div className="row">
+              <div className="col-sm-4 text-right">Email</div>
+              <div className="col-8 text-left">{this.state.email}</div>
+            </div>
+          </div>
+          <div className="col"></div>
+        </div>
+        </div>
+        
+        <div className="row">
+          
+          <div className="col"></div>
+          
+          <div className="col-8">
+            <form onSubmit={this.addTraining} >
+              <div className="form-group row">
+                <label htmlFor="firstname" className="col-sm-4 col-form-label">Date</label>
+                <div className="col-sm-8">
+                  <input 
+                    type="date"
+                    onChange={this.inputChanged}
+                    className="form-control" 
+                    id="date"
+                    name="date"
+                    value={date}
+                    />
+                </div>
+              </div>
+              <div className="form-group row">
+                <label htmlFor="lastname" className="col-sm-4 col-form-label">Activity</label>
+                <div className="col-sm-8">
+                  <input 
+                    type="text"
+                    onChange={this.inputChanged}
+                    className="form-control" 
+                    id="activity"
+                    name="activity"
+                    value={activity}
+                    />
+                </div>
+              </div>
+              <div className="form-group row">
+                <label htmlFor="lastname" className="col-sm-4 col-form-label">Duration (mins)</label>
+                <div className="col-sm-8">
+                  <input 
+                    type="text"
+                    onChange={this.inputChanged}
+                    className="form-control" 
+                    id="duration"
+                    name="duration"
+                    value={duration}
+                    />
+                </div>
+              </div>
+            <button type="submit" className="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Add</button>  
+          </form>
+        </div>
+
+        <div className="col"></div>
+
+      </div>
+
       <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
@@ -139,7 +192,7 @@ export default class AddTraining extends Component {
               Training added!
             </div>
             <div class="modal-footer">
-              <button type="button" className="btn btn-danger" data-dismiss="modal" onClick={this.goToCustomer}>OK</button>
+              <button type="button" className="btn btn-primary" data-dismiss="modal" onClick={this.goToCustomer}>OK</button>
             </div>
           </div>
         </div>

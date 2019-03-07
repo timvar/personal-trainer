@@ -48,7 +48,9 @@ export default class Trainings extends Component {
       accessor: 'customer.lastname'
     },
     { id: 'deleteTraining',
-      Header: 'Delete Training',
+      Header: '',
+      sortable: false, 
+      filterable: false,
       accessor: d => {
         const id = d.id;
         return (  
@@ -60,7 +62,9 @@ export default class Trainings extends Component {
   
     return (
       <div className="container">
-        <h2>Trainings</h2>
+        <div className="trainings">
+          <h3>Trainings</h3>
+        </div>
         <ReactTable 
           data={this.state.trainings}
           filterable

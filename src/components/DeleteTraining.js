@@ -53,7 +53,7 @@ export default class DeleteTraining extends Component {
 
     return (
       <div className="container">
-        <h2>Delete Training</h2>
+        <h3 className="delete-training-header">Delete Training</h3>
         <p>Date: { this.state.date.length ? moment(this.state.date).format("DD-MM-YYYY") : ''}</p>
         <p>Activity: {this.state.activity}</p>
         <p>Duration: { this.state.duration }</p>

@@ -12,3 +12,49 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.add-customer {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  }
+
+.add-customer-btn {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.trainings {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.col-form-label {
+  text-align: right;
+}
+
+.delete-customer {
+  margin-top: 20px;
+}
+
+.customer-details {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.update-customer {
+  margin-top: 20px;
+}
+
+.add-training-header {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.add-training-customer-data {
+  margin-bottom: 20px;
+}
+
+.delete-training-header {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
