@@ -1,29 +1,11 @@
 import React, { Component } from 'react'
 import Calendar from "react-big-calendar";
-//import BigCalendar from 'react-big-calendar'
 import moment from "moment";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 
 import axios from 'axios';
-// import localizer from 'react-big-calendar/lib/localizers/globalize'
-// import globalize from 'globalize'
-//import 'react-big-calendar/lib/less/styles.less'
 
-
-//const globalizeLocalizer = localizer(globalize)
 const localizer = Calendar.momentLocalizer(moment);
-//const localizer = BigCalendar.momentLocalizer(moment)
-//let allViews = Object.keys(BigCalendar.Views).map(k => BigCalendar.Views[k])
-
-/*
-Event {
-  title: string,
-  start: Date,
-  end: Date,
-  allDay?: boolean
-  resource?: any,
-}
-*/
 
 export default class Reservations extends Component {
   constructor(props) {
@@ -90,19 +72,4 @@ export default class Reservations extends Component {
     )
   }
 }
-
-
-/*
-<BigCalendar
-          localizer={localizer}
-          events={this.state.events}
-          views={allViews}
-          startAccessor="start"
-          endAccessor="end"
-          defaultDate={new Date()}
-          showMultiDayTimes
-        />
-
-
-      */
 
