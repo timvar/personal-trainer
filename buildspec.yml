@@ -2,7 +2,8 @@ version: 0.2
 
 phases:
   install:
-#    runtime-versions:
+    runtime-versions:
+       docker: 18
 #      nodejs: 10
     commands:
       - nohup /usr/local/bin/dockerd --host=unix:///var/run/docker.sock --host=tcp://127.0.0.1:2375 --storage-driver=overlay2&
