@@ -2,22 +2,22 @@ version: 0.2
 
 phases:
   install:
-    runtime-versions:
-      nodejs: 10
+#    runtime-versions:
+#      nodejs: 10
     commands:
       - nohup /usr/local/bin/dockerd --host=unix:///var/run/docker.sock --host=tcp://127.0.0.1:2375 --storage-driver=overlay2&
       - timeout 15 sh -c "until docker info; do echo .; sleep 1; done"
   pre_build:
     commands:
-      - npm install
+#      - npm install
   build:
     commands:
-      - npm run build
+#      - npm run build
   post_build:
     commands:
-      - docker build -t personal-trainer .
-artifacts:
-  files:
-    - '**/*'
-  name: artifact-name
-  base-directory: build
+#      - docker build -t personal-trainer .
+#artifacts:
+#  files:
+#    - '**/*'
+#  name: artifact-name
+#  base-directory: build
